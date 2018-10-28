@@ -17,11 +17,12 @@ Including another URLconf
 #どのアドレスにアクセスされたら何を実行するかの管理をする
 from django.contrib import admin
 from django.urls import path
-from django.urls import include#引数に指定したモジュールを読み込む
+from django.urls import include
 
 
 urlpatterns = [
     #path('アドレス', 呼び出す処理)：アドレスと処理をまとめた情報を返す関数=>アドレスと処理を関連づけたものが用意される
     path('admin/', admin.site.urls),
+    #引数に指定したモジュールを読み込む
     path('hello/', include('hello.urls')),
 ]
