@@ -13,6 +13,12 @@
 <body>
     <h1>{{title}}</h1>
     <p>{{msg}}</p>
-    <p><a href='{% url goto %}'>{{goto}}</a></p>#指定した名前のurlが返る
+    <form action="{% url 'form' %}" method="post">
+    <!--　フォームの送信先を定義する-->
+        {% csrf_token %}<!-- CSRF対策-->
+        <label for='msg'>message: </label>
+        <input id='msg' type='text' name='msg'>
+        <input type='submit' value='click'>
+    </form>
 </body>
 </html>
